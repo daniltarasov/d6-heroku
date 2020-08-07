@@ -1,12 +1,9 @@
-# Ошибка
-
 Traceback (most recent call last):
   File "/app/.heroku/python/lib/python3.8/site-packages/django/db/backends/utils.py", line 84, in _execute
     return self.cursor.execute(sql, params)
 psycopg2.errors.UndefinedTable: relation "p_library_author" does not exist
 LINE 1: UPDATE "p_library_author" SET "full_name" = 'Николай Василье...
                ^
-               
 The above exception was the direct cause of the following exception:
 Traceback (most recent call last):
   File "manage.py", line 23, in <module>
@@ -53,6 +50,5 @@ Traceback (most recent call last):
     raise dj_exc_value.with_traceback(traceback) from exc_value
   File "/app/.heroku/python/lib/python3.8/site-packages/django/db/backends/utils.py", line 84, in _execute
     return self.cursor.execute(sql, params)
-  
 django.db.utils.ProgrammingError: Problem installing fixture '/app/data.json': Could not load p_library.Author(pk=1): relation "p_library_author" does not exist
 LINE 1: UPDATE "p_library_author" SET "full_name" = 'Николай Василье...
