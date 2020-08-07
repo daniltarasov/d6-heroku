@@ -31,7 +31,7 @@ DEBUG = True
 #для локалки
 ALLOWED_HOSTS = []
 #для хероку
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '0.0.0.0', 'd6-bookscollection1.herokuapp.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '0.0.0.0', 'd6-bookscollection.herokuapp.com']
 
 
 # Application definition
