@@ -1,0 +1,124 @@
+Enumerating objects: 112, done.
+Counting objects: 100% (112/112), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (105/105), done.
+Writing objects: 100% (112/112), 160.57 KiB | 6.42 MiB/s, done.
+Total 112 (delta 37), reused 0 (delta 0), pack-reused 0
+remote: Compressing source files... done.
+remote: Building source:
+remote:
+remote: -----> Python app detected
+remote:  !     Python has released a security update! Please consider upgrading to python-3.8.5
+remote:        Learn More: https://devcenter.heroku.com/articles/python-runtimes
+remote: -----> Installing python-3.8.1
+remote: -----> Installing pip 20.1.1, setuptools 47.1.1 and wheel 0.34.2
+remote: -----> Installing SQLite3
+remote: -----> Installing requirements with pip
+remote:        Collecting dj-database-url==0.5.0
+remote:          Downloading dj_database_url-0.5.0-py2.py3-none-any.whl (5.5 kB)
+remote:        Collecting Django>=2.2.8
+remote:          Downloading Django-3.1-py3-none-any.whl (7.8 MB)
+remote:        Collecting django-heroku==0.3.1
+remote:          Downloading django_heroku-0.3.1-py2.py3-none-any.whl (6.2 kB)
+remote:        Collecting gunicorn==20.0.4
+remote:          Downloading gunicorn-20.0.4-py2.py3-none-any.whl (77 kB)
+remote:        Collecting Pillow==6.2.1
+remote:          Downloading Pillow-6.2.1-cp38-cp38-manylinux1_x86_64.whl (2.1 MB)
+remote:        Collecting psycopg2==2.8.4
+remote:          Downloading psycopg2-2.8.4.tar.gz (377 kB)
+remote:        Collecting psycopg2-binary==2.8.4
+remote:          Downloading psycopg2_binary-2.8.4-cp38-cp38-manylinux1_x86_64.whl (3.0 MB)
+remote:        Collecting pytz==2019.3
+remote:          Downloading pytz-2019.3-py2.py3-none-any.whl (509 kB)
+remote:        Collecting sqlparse==0.3.0
+remote:          Downloading sqlparse-0.3.0-py2.py3-none-any.whl (39 kB)
+remote:        Collecting whitenoise==4.1.4
+remote:          Downloading whitenoise-4.1.4-py2.py3-none-any.whl (20 kB)
+remote:        Collecting asgiref~=3.2.10
+remote:          Downloading asgiref-3.2.10-py3-none-any.whl (19 kB)
+remote:        Building wheels for collected packages: psycopg2
+remote:          Building wheel for psycopg2 (setup.py): started
+remote:          Building wheel for psycopg2 (setup.py): finished with status 'done'
+remote:          Created wheel for psycopg2: filename=psycopg2-2.8.4-cp38-cp38-linux_x86_64.whl size=482064 sha256=db3e6029e1aafd09863da48a4876e6f38e2470f1e40c6e4c785289dc3aef221a
+remote:          Stored in directory: /tmp/pip-ephem-wheel-cache-k9yakkxq/wheels/ac/07/3e/87adc95a2be1ee727bc54f487ce874bd6765ec9f206effb0df
+remote:        Successfully built psycopg2
+remote:        Installing collected packages: dj-database-url, asgiref, pytz, sqlparse, Django, psycopg2, whitenoise, django-heroku, gunicorn, Pillow, psycopg2-binary
+remote:        Successfully installed Django-3.1 Pillow-6.2.1 asgiref-3.2.10 dj-database-url-0.5.0 django-heroku-0.3.1 gunicorn-20.0.4 psycopg2-2.8.4 psycopg2-binary-2.8.4 pytz-2019.3 sqlparse-0.3.0 whitenoise-4.1.4
+remote: -----> $ python manage.py collectstatic --noinput
+remote:        133 static files copied to '/tmp/build_f9359346/staticfiles', 408 post-processed.
+remote:
+remote: -----> Discovering process types
+remote:        Procfile declares types -> release, web
+remote:
+remote: -----> Compressing...
+remote:        Done: 60.5M
+remote: -----> Launching...
+remote:  !     Release command declared: this new release will not be available until the command succeeds.
+remote:        Released v6
+remote:        https://d6-bookscollection1.herokuapp.com/ deployed to Heroku
+remote:
+remote: Verifying deploy... done.
+remote: Running release command...
+remote:
+remote: Traceback (most recent call last):
+remote:   File "/app/.heroku/python/lib/python3.8/site-packages/django/db/backends/utils.py", line 84, in _execute
+remote:     return self.cursor.execute(sql, params)
+remote: psycopg2.errors.UndefinedTable: relation "p_library_author" does not exist
+remote: LINE 1: UPDATE "p_library_author" SET "full_name" = 'Николай Василье...
+remote:                ^
+remote:
+remote:
+remote: The above exception was the direct cause of the following exception:
+remote:
+remote: Traceback (most recent call last):
+remote:   File "manage.py", line 23, in <module>
+remote:     main()
+remote:   File "manage.py", line 19, in main
+remote:     execute_from_command_line(sys.argv)
+remote:   File "/app/.heroku/python/lib/python3.8/site-packages/django/core/management/__init__.py", line 401, in execute_from_command_line
+remote:     utility.execute()
+remote:   File "/app/.heroku/python/lib/python3.8/site-packages/django/core/management/__init__.py", line 395, in execute
+remote:     self.fetch_command(subcommand).run_from_argv(self.argv)
+remote:   File "/app/.heroku/python/lib/python3.8/site-packages/django/core/management/base.py", line 330, in run_from_argv
+remote:     self.execute(*args, **cmd_options)
+remote:   File "/app/.heroku/python/lib/python3.8/site-packages/django/core/management/base.py", line 371, in execute
+remote:     output = self.handle(*args, **options)
+remote:   File "/app/.heroku/python/lib/python3.8/site-packages/django/core/management/commands/loaddata.py", line 72, in handle
+remote:     self.loaddata(fixture_labels)
+remote:   File "/app/.heroku/python/lib/python3.8/site-packages/django/core/management/commands/loaddata.py", line 114, in loaddata
+remote:     self.load_label(fixture_label)
+remote:   File "/app/.heroku/python/lib/python3.8/site-packages/django/core/management/commands/loaddata.py", line 181, in load_label
+remote:     obj.save(using=self.using)
+remote:   File "/app/.heroku/python/lib/python3.8/site-packages/django/core/serializers/base.py", line 223, in save
+remote:     models.Model.save_base(self.object, using=using, raw=True, **kwargs)
+remote:   File "/app/.heroku/python/lib/python3.8/site-packages/django/db/models/base.py", line 787, in save_base
+remote:     updated = self._save_table(
+remote:   File "/app/.heroku/python/lib/python3.8/site-packages/django/db/models/base.py", line 869, in _save_table
+remote:     updated = self._do_update(base_qs, using, pk_val, values, update_fields,
+remote:   File "/app/.heroku/python/lib/python3.8/site-packages/django/db/models/base.py", line 923, in _do_update
+remote:     return filtered._update(values) > 0
+remote:   File "/app/.heroku/python/lib/python3.8/site-packages/django/db/models/query.py", line 803, in _update
+remote:     return query.get_compiler(self.db).execute_sql(CURSOR)
+remote:   File "/app/.heroku/python/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1515, in execute_sql
+remote:     cursor = super().execute_sql(result_type)
+remote:   File "/app/.heroku/python/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1154, in execute_sql
+remote:     cursor.execute(sql, params)
+remote:   File "/app/.heroku/python/lib/python3.8/site-packages/django/db/backends/utils.py", line 98, in execute
+remote:     return super().execute(sql, params)
+remote:   File "/app/.heroku/python/lib/python3.8/site-packages/django/db/backends/utils.py", line 66, in execute
+remote:     return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+remote:   File "/app/.heroku/python/lib/python3.8/site-packages/django/db/backends/utils.py", line 75, in _execute_with_wrappers
+remote:     return executor(sql, params, many, context)
+remote:   File "/app/.heroku/python/lib/python3.8/site-packages/django/db/backends/utils.py", line 84, in _execute
+remote:     return self.cursor.execute(sql, params)
+remote:   File "/app/.heroku/python/lib/python3.8/site-packages/django/db/utils.py", line 90, in __exit__
+remote:     raise dj_exc_value.with_traceback(traceback) from exc_value
+remote:   File "/app/.heroku/python/lib/python3.8/site-packages/django/db/backends/utils.py", line 84, in _execute
+remote:     return self.cursor.execute(sql, params)
+remote: django.db.utils.ProgrammingError: Problem installing fixture '/app/data.json': Could not load p_library.Author(pk=1): relation "p_library_author" does not exist
+remote: LINE 1: UPDATE "p_library_author" SET "full_name" = 'Николай Василье...
+remote:                ^
+remote:
+remote: Waiting for release.... failed.
+To https://git.heroku.com/d6-bookscollection1.git
+ * [new branch]      master -> master
