@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
-# import dj_database_url  #для heroku
+
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -22,13 +22,16 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'lp_4h@=vn(09!!42ygq3a)@#n8k#9^v_3pf2+i*p9v-d9%0cjy'
-# SECRET_KEY = os.environ.get('SECRET_KEY') #для хероку
+# SECRET_KEY = 'lp_4h@=vn(09!!42ygq3a)@#n8k#9^v_3pf2+i*p9v-d9%0cjy'
+SECRET_KEY = os.environ.get('SECRET_KEY') #для хероку
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+#для локалки
 ALLOWED_HOSTS = []
+#для хероку
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '0.0.0.0', 'd6-bookscollection1.herokuapp.com']
 
 
 # Application definition
@@ -41,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'p_library',
+    'whitenoise.runserver_nostatic',  #для хранения статики на хероку
 ]
 
 MIDDLEWARE = [
@@ -52,6 +56,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',   #для хранения статики на хероку
 ]
 
 ROOT_URLCONF = 'my_site.urls'
@@ -81,17 +86,18 @@ WSGI_APPLICATION = 'my_site.wsgi.application'
 """
 для локалки
 """
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
+# }
 
 """
 для heroku
 """
-# DATABASES = {'default': dj_database_url.config(default=os.environ.get('DATABASE_URL'))}
+import dj_database_url  #для heroku
+DATABASES = {'default': dj_database_url.config(default=os.environ.get('DATABASE_URL'))}
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
@@ -117,7 +123,8 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+# TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Moscow'   #для часового пояса на хероку
 
 USE_I18N = True
 
@@ -141,3 +148,4 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 # STATICFILES_DIRS = [
 #     os.path.join(BASE_DIR, "static"),
 # ]
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
