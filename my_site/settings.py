@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
-
+import django_heroku
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -29,7 +29,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY') #для хероку
 DEBUG = True
 
 #для локалки
-ALLOWED_HOSTS = []
+# ALLOWED_HOSTS = []
 #для хероку
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '0.0.0.0', 'd6-bookscollection.herokuapp.com']
 
